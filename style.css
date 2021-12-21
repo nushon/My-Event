@@ -1,0 +1,55 @@
+#hero_section{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0,0,0,0.8)), url(./img/diplomatic.jpg);
+    background-size: cover;
+    color:  rgb(226, 226, 226);
+}
+
+header{
+    position: static;
+    background-color: rgb(0, 110, 144);
+    color: white;
+}
+
+body{
+    background-color: rgb(226, 226, 226);
+}
+
+#logo1{
+    color: rgb(241, 143, 1);
+}
+
+#logo2{
+    color: rgb(241, 143, 1);
+}
+
+button{
+    background-color: rgb(241, 143, 1);
+}
+
+#nav_btn{
+    background-color: rgb(241, 143, 1);
+    color: white;
+}
+.yellow_btn{
+    background-color: rgb(241, 143, 1)!important;
+}
+
+#event_detail{
+    margin: -80px 0px 0px 0px !important;
+}
+
+#form_footer{
+    margin: -90px 0px 0px 0px !important;
+}
+
+#step2{
+    display: none;
+}
+
+#step3{
+    display: none;
+}
+
+.checkbox{
+    margin: 0px 0px 0px -300px !important;
+}
