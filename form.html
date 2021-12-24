@@ -19,9 +19,9 @@
           <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
             <a class="mr-5 hover:text-gray-900" href="./index.html">Home</a>
             <a class="mr-5 hover:text-gray-900" href="./form.html">Host Event</a>
-            <a class="mr-5 hover:text-gray-900">Attend Event</a>
+            <a class="mr-5 hover:text-gray-900" href="./attend.html">Attend Event</a>
             <a class="mr-5 hover:text-gray-900">About Us</a>
-            <a class="mr-5 hover:text-gray-900">Contact Us</a>
+            <a class="mr-5 hover:text-gray-900" href="./contact.html">Contact Us</a>
           </nav>
           <button id="nav_btn"class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
@@ -53,18 +53,12 @@
      
      <button onclick="displayStep3();" id="btn_step3">
         <a class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium  bg-gray-100 inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider" id="tab3">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
-              <circle cx="12" cy="5" r="3"></circle>
-              <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
-            </svg>STEP 3
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>STEP 3
           </a>
      </button>
-      <a class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider">
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
-          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>STEP 4
-      </a>
     </div>
     <!-- steps header ends -->
 
@@ -225,9 +219,53 @@
                     </div>
                   </div>
                 </div>
+                
               </fieldset>
+             
+        </div>
+        <div class="p-2 w-full">
+          <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg">Submit</button>
         </div>
       </div>
+
+
+    <!-- Step 3 details -->
+    
+   
+    <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step3">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Speaker's Details</h1>
+      <div class="lg:w-1/2 md:w-2/3 mx-auto">
+        <div class="flex flex-wrap -m-2">
+          <div class="p-2 w-1/2">
+            <div class="relative">
+              <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+              <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+          </div>
+          
+          <div class="p-2 w-1/2">
+            <div class="relative">
+              <label for="status" class="leading-7 text-sm text-gray-600">Status</label>
+              <input type="text" id="status" name="status" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+          </div>
+    
+        
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label for="biography" class="leading-7 text-sm text-gray-600">Biography</label>
+              <textarea id="biography" name="biography" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg">Submit</button>
+          </div>
+          
+        </div>
+        <!-- Second Speaker -->
+        
+      </div>
+    </div>
   </div>
 </section>
       <!-- Footer -->
@@ -295,7 +333,7 @@
         step2.style.display = "block";
         step3.style.display = "none";
         tab1.style.backgroundColor = "white";
-        tab2.style.backgroundColor = "red";
+        tab2.style.backgroundColor = "rgb(241, 143, 1)";
         tab3.style.backgroundColor = "white";
     }
     function displayStep3(){
