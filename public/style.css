@@ -43,14 +43,23 @@ button{
     margin: -90px 0px 0px 0px !important;
 }
 
+.steps{
+    background-color: white;
+}
+
 #step2{
     display: none;
+    background-color: white;
 }
 
 #step3{
     display: none;
+    background-color: white;
 }
 
+.tabs{
+    background-color: white;
+}
 .checkbox{
     margin: 0px 0px 0px -300px !important;
 }
