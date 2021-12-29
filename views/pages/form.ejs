@@ -1,0 +1,288 @@
+<%- include('../template/head') -%>
+<body>
+<%- include('../template/header') -%>
+      <!-- Form Section 3 steps -->
+<section class="text-gray-600 body-font">
+    
+  <div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
+      <!-- steps headers -->
+    <div class="flex mx-auto flex-wrap mb-20" >
+      <button onclick="displayStep1();" id="btn_step1" class="steps">
+        <a class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium bg-white-100 inline-flex items-center leading-none border-tangerine-500 text-tangerine-500 tracking-wider rounded-t" id="tab1" class="tabs">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>STEP 1
+          </a>
+      </button>
+      <button onclick="displayStep2();" id="btn_step2" class="steps">
+        <a class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium bg-white-100 inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider" id="tab2" class="tabs">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>STEP 2
+          </a>
+      </button>
+     
+     <button onclick="displayStep3();" id="btn_step3" class="steps">
+        <a class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium  bg-white-100 inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider" id="tab3" class="tabs">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>STEP 3
+          </a>
+     </button>
+    </div>
+    <!-- steps header ends -->
+
+    <!-- Step 1 details -->
+    
+   
+      <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step1">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Event's Details</h1>
+        <div class="lg:w-1/2 md:w-2/3 mx-auto">
+          <div class="flex flex-wrap -m-2">
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="name" class="leading-7 text-sm text-gray-600" id="event_name">Event's Name</label>
+                <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="Venue" class="leading-7 text-sm text-gray-600" id="venue">Venue</label>
+                  <input type="text" id="venue" name="venue" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="date" class="leading-7 text-sm text-gray-600" id="start_date">Event's Start Date</label>
+                <input type="date" id="start_date" name="start_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="date" class="leading-7 text-sm text-gray-600" id="end_date">Event's End Date</label>
+                  <input type="date" id="end_date" name="end_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+          
+            <div class="p-2 w-full">
+              <div class="relative">
+                <label for="message" class="leading-7 text-sm text-gray-600" id="about-event">About The Event</label>
+                <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="event_details();">Submit</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+   
+
+    <!-- Step2 details -->
+    
+   
+    <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step2">
+        
+        <div class="lg:w-1/2 md:w-2/3 mx-auto text-center w-full mb-12 text-lg">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Participant's Details</h1>
+            <fieldset>
+    
+                <div class="mt-4 space-y-4">
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="name" name="name" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="name" class="font-medium text-gray-700">Name</label>
+                        <p class="text-gray-500">Check the box if you want the applicant to input their Name.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="dob" name="dob" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="dob" class="font-medium text-gray-700">Date Of Birth</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to input their DOB .</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="address" name="address" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="address" class="font-medium text-gray-700">Address</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to input their Address.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="email" name="email" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="email" class="font-medium text-gray-700">Email</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to input their Email.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="phone_num" name="phone_num" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="phone_num" class="font-medium text-gray-700">Phone Number</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to input their Phone Number.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="sex" name="sex" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="sex" class="font-medium text-gray-700" >Sex</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to input their Sex.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="education" name="education" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="education" class="font-medium text-gray-700">Educational Status</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to input their Educational Status.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="status" name="status" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="status" class="font-medium text-gray-700">Status</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to input their Status.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="about_you" name="about_you" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="about_you" class="font-medium text-gray-700">Tell us about yourself</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to tell you about themself.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="why_apply" name="why_apply" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="why_apply" class="font-medium text-gray-700">Why are you applying?</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to you why they are applying.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="why_you" name="why_you" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="why_you" class="font-medium text-gray-700">Why do you that you are the best candidate?</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to you why they are the best candidate.</p>
+                    </div>
+                  </div>
+                </div>
+                
+              </fieldset>
+             
+        </div>
+        <div class="p-2 w-full">
+          <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick=" participant_details()">Submit</button>
+        </div>
+      </div>
+
+
+    <!-- Step 3 details -->
+    
+   
+    <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step3">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Speaker's Details</h1>
+      <div class="lg:w-1/2 md:w-2/3 mx-auto">
+        <div class="flex flex-wrap -m-2">
+          <div class="p-2 w-1/2">
+            <div class="relative">
+              <label for="speaker_name" class="leading-7 text-sm text-gray-600">Name</label>
+              <input type="text" id="speaker_name" name="speaker_name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+          </div>
+          
+          <div class="p-2 w-1/2">
+            <div class="relative">
+              <label for="speaker_status" class="leading-7 text-sm text-gray-600">Status</label>
+              <input type="text" id="speaker_status" name="speaker_status" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+          </div>
+    
+        
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label for="biography" class="leading-7 text-sm text-gray-600">Biography</label>
+              <textarea id="biography" name="biography" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="speaker_details();">Submit</button>
+          </div>
+          
+        </div>
+        <!-- Second Speaker -->
+        
+      </div>
+    </div>
+  </div>
+</section>
+      <!-- Footer -->
+      <%- include('../template/footer') -%>
+<script src="/js/event_form.js"></script>
+</body>
+</html>// Adding interaction on the steps buttons
+function displayStep1(){
+    let step1 = document.getElementById("step1");
+    let step2 = document.getElementById("step2");
+    let step3 = document.getElementById("step3");
+    let tab1 = document.getElementById("tab1");
+    let tab2 = document.getElementById("tab2");
+    let tab3 = document.getElementById("tab3");
+    step1.style.display = "block";
+    step2.style.display = "none";
+    step3.style.display = "none";
+    btn_step1.style.backgroundColor = "rgb(241, 143, 1)";
+    btn_step2.style.backgroundColor = "white";
+    btn_step3.style.backgroundColor = "white";
+}
+function displayStep2(){
+    let step1 = document.getElementById("step1");
+    let step2 = document.getElementById("step2");
+    let step3 = document.getElementById("step3");
+    let tab1 = document.getElementById("tab1");
+    let tab2 = document.getElementById("tab2");
+    let tab3 = document.getElementById("tab3");
+    step1.style.display = "none";
+    step2.style.display = "block";
+    step3.style.display = "none";
+    btn_step1.style.backgroundColor = "white";
+    btn_step2.style.backgroundColor = "rgb(241, 143, 1)";
+    btn_step3.style.backgroundColor = "white";
+}
+function displayStep3(){
+    let step1 = document.getElementById("step1");
+    let step2 = document.getElementById("step2");
+    let step3 = document.getElementById("step3");
+    let tab1 = document.getElementById("tab1");
+    let tab2 = document.getElementById("tab2");
+    let tab3 = document.getElementById("tab3");
+    step1.style.display = "none";
+    step2.style.display = "none";
+    step3.style.display = "block";
+    btn_step1.style.backgroundColor = "white";
+    btn_step2.style.backgroundColor = "white";
+    btn_step3.style.backgroundColor = "rgb(241, 143, 1)";
+}
