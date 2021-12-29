@@ -1,3 +1,8 @@
+const EVENT_FORM_DATA = {event_name: event_name.value,
+                         venue: venue.value,
+                         start_date: start_date.value,
+                         end_date: end_date.value,
+                         about_event: about_event.value};
 // Adding interaction on the steps buttons
 function displayStep1(){
     let step1 = document.getElementById("step1");
@@ -89,7 +94,10 @@ fetch(url, {
 })
 
 .then(res => res.json());
+
+return displayStep2();
 }
+// event_details();
 
 
 
@@ -121,6 +129,8 @@ fetch(url, {
 })
 
 .then(res => res.json());
+
+return displayStep3();
 }
 
 // Speaker Details

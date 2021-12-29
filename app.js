@@ -7,7 +7,7 @@ const axios = require("axios");
 let ejs = require('ejs');
 // let ejslayout = require('express-ejs-layouts');
 // // api url
-// const api_url = "https://kpalan-event.herokuapp.com/";
+const api_url = "https://kpalan-event.herokuapp.com/";
 // _____________________________________ Head _______________________________________________________
 
 
@@ -28,7 +28,12 @@ app.get('/', (req, res)=> {
 app.get('/form', (req, res)=> {
     res.render('pages/form');
 });
-
+app.get('/attend', (req, res)=> {
+    res.render('pages/attend');
+});
+app.get('/contact', (req, res)=> {
+    res.render('pages/contact');
+});
 // Defining async function
 // async function participantApi() {
 //     const res = await axios("https://kpalan-event.herokuapp.com/participant");
@@ -64,43 +69,34 @@ app.get('/form', (req, res)=> {
 // }
 // // Calling that async function
 // speakersApi();
-
-let participant = axios.post('https://kpalan-event.herokuapp.com/participant', {
-    name : 'Carlos Nah',
-    address: 'Bardnesville',
-    phone_number: '0776632128',
-    email: 'carlos@gmail.com',
-    dob: 'October 23, 1998S',
-    status: 'Working',
-    img: ''
-})
-.then(response => {
-    console.log(response);
-    console.log(participant.data);
-}, (error) => {
-    console.log(error);
-});
-
-axios.post('https://kpalan-event.herokuapp.com/host', {
-    name: "", 
-    address: "", 
-    phone_number: "",
-    organization_name: "", 
-    email: "", 
-    img: ""
-})
-.then(response => {
-    console.log(response);
-}, (error) => {
-    console.log(error);
-});
-
-
-app.post('/event_detail', (req, res)=> {
-    let event_data = req.body;
+app.post('/participant_detail', (req, res)=> {
+    let participant_data = req.body;
     let data;
 
-    axios.post('https://kpalan-event.herokuapp.com/hostform', event_data)
+    axios.post('https://kpalan-event.herokuapp.com/participant', participant_data)
+    .then(res => {
+        data = res.data;
+        console.log(res.status);
+        console.log(data);
+    
+        if(res.status === 200 && data["code"] === 0){
+            res.end(JSON.stringify(data));
+        }
+        else if(res.status === 200 && data["code"] !== 0){
+            res.end(JSON.stringify(data));
+        }
+    }), (error) => {
+        console.log(error);
+    };
+    
+    
+});
+
+app.post('/host', (req, res)=> {
+    let host_data = req.body;
+    let data;
+
+    axios.post('https://kpalan-event.herokuapp.com/host', host_data)
     .then(res => {
         data = res.data;
         console.log(res.status);
@@ -118,6 +114,32 @@ app.post('/event_detail', (req, res)=> {
     
     
 })
+
+
+
+app.post('/event_detail', (req, res)=> {
+    let event_data = req.body;
+    console.log("This is event data: ", event_data);
+    let data;
+
+    axios.post('https://kpalan-event.herokuapp.com/event_form', event_data)
+    .then(response => {
+        data = response.data;
+        console.log(response.status);
+        console.log(data);
+    
+        if(response.status === 200 && data["code"] === 0){
+            response.end(JSON.stringify(data));
+        }
+        else if(response.status === 200 && data["code"] !== 0){
+            response.end(JSON.stringify(data));
+        }
+    }), (error) => {
+        console.log(error);
+    };
+    
+    
+});
 
 
 app.post('/participant_detail', (req, res)=> {

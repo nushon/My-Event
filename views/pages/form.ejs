@@ -39,43 +39,47 @@
       <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step1">
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Event's Details</h1>
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
-          <div class="flex flex-wrap -m-2">
-            <div class="p-2 w-1/2">
-              <div class="relative">
-                <label for="name" class="leading-7 text-sm text-gray-600" id="event_name">Event's Name</label>
-                <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-              </div>
-            </div>
-            <div class="p-2 w-1/2">
+
+          <form action="" method="">
+            <div class="flex flex-wrap -m-2">
+              <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="Venue" class="leading-7 text-sm text-gray-600" id="venue">Venue</label>
-                  <input type="text" id="venue" name="venue" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="name" class="leading-7 text-sm text-gray-600" id="event_name">Event's Name</label>
+                  <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
-            <div class="p-2 w-1/2">
-              <div class="relative">
-                <label for="date" class="leading-7 text-sm text-gray-600" id="start_date">Event's Start Date</label>
-                <input type="date" id="start_date" name="start_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-              </div>
-            </div>
-            <div class="p-2 w-1/2">
+              <div class="p-2 w-1/2">
+                  <div class="relative">
+                    <label for="Venue" class="leading-7 text-sm text-gray-600" id="venue">Venue</label>
+                    <input type="text" id="venue" name="venue" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  </div>
+                </div>
+              <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="date" class="leading-7 text-sm text-gray-600" id="end_date">Event's End Date</label>
-                  <input type="date" id="end_date" name="end_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="date" class="leading-7 text-sm text-gray-600" id="start_date">Event's Start Date</label>
+                  <input type="date" id="start_date" name="start_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
-          
-            <div class="p-2 w-full">
-              <div class="relative">
-                <label for="message" class="leading-7 text-sm text-gray-600" id="about-event">About The Event</label>
-                <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-              </div>
-            </div>
-            <div class="p-2 w-full">
-              <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="event_details();">Submit</button>
-            </div>
+              <div class="p-2 w-1/2">
+                  <div class="relative">
+                    <label for="date" class="leading-7 text-sm text-gray-600" id="end_date">Event's End Date</label>
+                    <input type="date" id="end_date" name="end_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  </div>
+                </div>
             
-          </div>
+              <div class="p-2 w-full">
+                <div class="relative">
+                  <label for="message" class="leading-7 text-sm text-gray-600" id="about-event">About The Event</label>
+                  <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                </div>
+              </div>
+              <div class="p-2 w-full">
+                <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="event_details();">Next</button>
+              </div>
+              
+            </div>
+          </form>
+          
         </div>
       </div>
    
@@ -195,7 +199,7 @@
              
         </div>
         <div class="p-2 w-full">
-          <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick=" participant_details()">Submit</button>
+          <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick=" participant_details()">Next</button>
         </div>
       </div>
 
@@ -243,46 +247,4 @@
       <%- include('../template/footer') -%>
 <script src="/js/event_form.js"></script>
 </body>
-</html>// Adding interaction on the steps buttons
-function displayStep1(){
-    let step1 = document.getElementById("step1");
-    let step2 = document.getElementById("step2");
-    let step3 = document.getElementById("step3");
-    let tab1 = document.getElementById("tab1");
-    let tab2 = document.getElementById("tab2");
-    let tab3 = document.getElementById("tab3");
-    step1.style.display = "block";
-    step2.style.display = "none";
-    step3.style.display = "none";
-    btn_step1.style.backgroundColor = "rgb(241, 143, 1)";
-    btn_step2.style.backgroundColor = "white";
-    btn_step3.style.backgroundColor = "white";
-}
-function displayStep2(){
-    let step1 = document.getElementById("step1");
-    let step2 = document.getElementById("step2");
-    let step3 = document.getElementById("step3");
-    let tab1 = document.getElementById("tab1");
-    let tab2 = document.getElementById("tab2");
-    let tab3 = document.getElementById("tab3");
-    step1.style.display = "none";
-    step2.style.display = "block";
-    step3.style.display = "none";
-    btn_step1.style.backgroundColor = "white";
-    btn_step2.style.backgroundColor = "rgb(241, 143, 1)";
-    btn_step3.style.backgroundColor = "white";
-}
-function displayStep3(){
-    let step1 = document.getElementById("step1");
-    let step2 = document.getElementById("step2");
-    let step3 = document.getElementById("step3");
-    let tab1 = document.getElementById("tab1");
-    let tab2 = document.getElementById("tab2");
-    let tab3 = document.getElementById("tab3");
-    step1.style.display = "none";
-    step2.style.display = "none";
-    step3.style.display = "block";
-    btn_step1.style.backgroundColor = "white";
-    btn_step2.style.backgroundColor = "white";
-    btn_step3.style.backgroundColor = "rgb(241, 143, 1)";
-}
+</html>
