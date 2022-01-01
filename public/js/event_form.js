@@ -133,6 +133,7 @@ fetch(url,{
 })
 // Calling the form generation function 
 form_generation(); 
+
 }
 
 // Get event details 
@@ -147,8 +148,8 @@ fetch(url).then(response => response.json())
     let container2 = document.querySelector('#event_body');
 
 container.innerHTML += `
-<h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4" id="the_event_name">${mydata[2].event_name}</h1>
-          <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s" id="the_event_des">The event's description: ${mydata[1].event_description}</p>
+<h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4" id="the_event_name">${mydata[5].event_name}</h1>
+          <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s" id="the_event_des">The event's description: ${mydata[3].event_description}</p>
           <div class="flex mt-6 justify-center">
             <div class="w-16 h-1 rounded-full bg-yellow-500 inline-flex"></div>
           </div>
@@ -162,7 +163,7 @@ container2.innerHTML += `
               </svg>
             </div>
             <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">${mydata[2].start_date}</h2>
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">${mydata[5].start_date}</h2>
               <p class="leading-relaxed text-base">Start Date</p>
               <a class="mt-3 text-yellow-500 inline-flex items-center">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
@@ -180,7 +181,7 @@ container2.innerHTML += `
               </svg>
             </div>
             <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">${mydata[2].end_date}</h2>
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">${mydata[5].end_date}</h2>
               <p class="leading-relaxed text-base">End Date</p>
               <a class="mt-3 text-yellow-500 inline-flex items-center">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
@@ -197,7 +198,7 @@ container2.innerHTML += `
               </svg>
             </div>
             <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">${mydata[2].event_location}</h2>
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">${mydata[5].event_location}</h2>
               <p class="leading-relaxed text-base">Venue</p>
               <a class="mt-3 text-yellow-500 inline-flex items-center">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
@@ -287,3 +288,8 @@ container.innerHTML += `
 
 }
 get_speakers();
+
+function bigFunx(){
+  get_details();
+  
+}
