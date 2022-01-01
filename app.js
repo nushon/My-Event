@@ -31,8 +31,14 @@ app.get('/form', (req, res)=> {
 app.get('/attend', (req, res)=> {
     res.render('pages/attend');
 });
+app.get('/event', (req, res)=> {
+    res.render('pages/event');
+});
 app.get('/contact', (req, res)=> {
     res.render('pages/contact');
+});
+app.get('/display_form', (req, res)=> {
+    res.render('pages/display_form');
 });
 // Defining async function
 // async function participantApi() {
@@ -58,12 +64,7 @@ app.get('/contact', (req, res)=> {
 // // Calling that async function
 // hostApi();
 
-// // speaker API 
-// async function speakersApi() {
-//     const res = await axios("https://kpalan-event.herokuapp.com/speakers");
-//     const data = res.data;
-//     console.log("Speakers :", (JSON.stringify({data})));
-    
+
 
     
 // }
@@ -79,12 +80,12 @@ app.post('/participant_detail', (req, res)=> {
         console.log(res.status);
         console.log(data);
     
-        if(res.status === 200 && data["code"] === 0){
-            res.end(JSON.stringify(data));
-        }
-        else if(res.status === 200 && data["code"] !== 0){
-            res.end(JSON.stringify(data));
-        }
+        // if(res.status === 200 && data["code"] === 0){
+        //     res.end(JSON.stringify(data));
+        // }
+        // else if(res.status === 200 && data["code"] !== 0){
+        //     res.end(JSON.stringify(data));
+        // }
     }), (error) => {
         console.log(error);
     };
@@ -122,18 +123,19 @@ app.post('/event_detail', (req, res)=> {
     console.log("This is event data: ", event_data);
     let data;
 
-    axios.post('https://kpalan-event.herokuapp.com/event_form', event_data)
+    // axios.post('https://kpalan-event.herokuapp.com/event_form', event_data)
+    axios.post('http://localhost:3100/event_form', event_data)
     .then(response => {
         data = response.data;
         console.log(response.status);
         console.log(data);
     
-        if(response.status === 200 && data["code"] === 0){
-            response.end(JSON.stringify(data));
-        }
-        else if(response.status === 200 && data["code"] !== 0){
-            response.end(JSON.stringify(data));
-        }
+        // if(response.status === 200){
+        //      response.end(JSON.stringify(data));
+        // }
+        //  else if(response.status === 200 && data["code"] !== 0){
+        //      response.end(JSON.stringify(data));
+        // }
     }), (error) => {
         console.log(error);
     };
@@ -152,12 +154,12 @@ app.post('/participant_detail', (req, res)=> {
         console.log(res.status);
         console.log(data);
     
-        if(res.status === 200 && data["code"] === 0){
-            res.end(JSON.stringify(data));
-        }
-        else if(res.status === 200 && data["code"] !== 0){
-            res.end(JSON.stringify(data));
-        }
+        // if(res.status === 200 && data["code"] === 0){
+        //     res.end(JSON.stringify(data));
+        // }
+        // else if(res.status === 200 && data["code"] !== 0){
+        //     res.end(JSON.stringify(data));
+        // }
     }), (error) => {
         console.log(error);
     };
@@ -169,18 +171,19 @@ app.post('/speaker_detail', (req, res)=> {
     let speaker_data = req.body;
     let data;
 
-    axios.post('https://kpalan-event.herokuapp.com/speakers', speaker_data)
+    // axios.post('https://kpalan-event.herokuapp.com/speakers', speaker_data)
+    axios.post('http://localhost:3100/speakers', speaker_data)
     .then(res => {
         data = res.data;
         console.log(res.status);
         console.log(data);
     
-        if(res.status === 200 && data["code"] === 0){
-            res.end(JSON.stringify(data));
-        }
-        else if(res.status === 200 && data["code"] !== 0){
-            res.end(JSON.stringify(data));
-        }
+        // if(res.status === 200 && data["code"] === 0){
+        //     res.end(JSON.stringify(data));
+        // }
+        // else if(res.status === 200 && data["code"] !== 0){
+        //     res.end(JSON.stringify(data));
+        // }
     }), (error) => {
         console.log(error);
     };
@@ -188,7 +191,26 @@ app.post('/speaker_detail', (req, res)=> {
     
 });
 
+// // speaker API
+app.get('/display_speakers', async(req, res)=>{
+    
+        // const res = await axios("https://kpalan-event.herokuapp.com/speakers");
+        const result = await axios("http://localhost:3100/speakers");
+        const data = result.data;
+        // console.log("Speakers :", (JSON.stringify({data})));
+        return res.json({data});
+});
 
+// // speaker API
+app.get('/display_event_details', async(req, res)=>{
+    
+    // const res = await axios("https://kpalan-event.herokuapp.com/speakers");
+    const result = await axios("http://localhost:3100/event_form");
+    const data = result.data;
+    console.log("Event Details :", (JSON.stringify({data})));
+    return res.json({data});
+});
+    
 
 app.listen(PORT, function(err){
     if (err) console.log(err);
