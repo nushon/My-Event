@@ -1,13 +1,30 @@
-let express = require ('express');
+const express = require ('express');
 let http = require('http');
 let app = express();
 let path = require("path");
 let PORT = process.env.PORT || 3000;
 const axios = require("axios");
 let ejs = require('ejs');
+// const cookieParser = require("cookie-parser");
+// const sessions = require('express-session');
 // let ejslayout = require('express-ejs-layouts');
 // // api url
 const api_url = "https://kpalan-event.herokuapp.com/";
+
+// // creating 24 hours from milliseconds
+// const oneDay = 1000 * 60 * 60 * 24;
+
+// //session middleware
+// // app.use(session({secret: 'ssshhhhh'}));
+// app.use(sessions({
+//     secret: "thisismysecrctekey",
+//     saveUninitialized:true,
+//     cookie: { maxAge: oneDay },
+//     resave: false
+// }));
+
+// // cookie parser middleware
+// app.use(cookieParser());
 // _____________________________________ Head _______________________________________________________
 
 
@@ -24,18 +41,22 @@ app.use(express.static('./public'));
 app.get('/', (req, res)=> {
     res.render('pages/index');
 });
-
+let session;
 app.get('/form', (req, res)=> {
+    // session=req.session;
+
     res.render('pages/form');
 });
 app.get('/attend', (req, res)=> {
     res.render('pages/attend');
 });
-app.get('/event', (req, res)=> {
-    res.render('pages/event');
-});
+
 app.get('/contact', (req, res)=> {
     res.render('pages/contact');
+});
+
+app.get('/event', (req, res)=> {
+    res.render('pages/event');
 });
 app.get('/display_form', (req, res)=> {
     res.render('pages/display_form');
@@ -171,17 +192,38 @@ app.get('/display_speakers', async(req, res)=>{
         return res.json({data});
 });
 
-// // speaker API
+// Getting display events
+
 app.get('/display_event_details', async(req, res)=>{
     
     // const res = await axios("https://kpalan-event.herokuapp.com/speakers");
     const result = await axios("http://localhost:3100/event_form");
     const data = result.data;
-    console.log("Event Details :", (JSON.stringify({data})));
+    console.log(" Details :", (JSON.stringify({data})));
     return res.json({data});
 });
+//Getting questionnaries
+app.get('/event_questionnaires', async(req, res)=>{
     
+    // const res = await axios("https://kpalan-event.herokuapp.com/speakers");
+    const result = await axios("http://localhost:3100/event_form");
+    const data = result.data;
+    console.log("Event Questionnaires :", (JSON.stringify({data})));
+    return res.json({data});
+});
 
+app.get('/event/:id', async(req, res)=> {
+    let event_id_query = req.params.id;
+    console.log("Event query", event_id_query)
+     // const res = await axios("https://kpalan-event.herokuapp.com/speakers");
+    const result = await axios(`http://localhost:3100/event/${event_id_query}`);
+    const data = await result.data;
+    // console.log("Query Details :", result);
+    // console.log('THE REQ', req.query);
+    res.render('pages/event', {event: data.event});
+    // res.json({data});
+
+});
 app.listen(PORT, function(err){
     if (err) console.log(err);
     console.log("Server listening on PORT", PORT);

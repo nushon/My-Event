@@ -5,10 +5,64 @@
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto">
         <div id="event_head" class="text-center mb-20">
-          
+          <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4" id="the_event_name"><%= event.event_name %></h1>
+          <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s" id="the_event_des">The event's description: <%= event.event_description %></p>
+          <div class="flex mt-6 justify-center">
+            <div class="w-16 h-1 rounded-full bg-yellow-500 inline-flex"></div>
+          </div>
         </div>
         <div id="event_body" class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-          
+          <div  class="p-4 md:w-1/3 flex flex-col text-center items-center">
+            <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-5 flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><%= event.start_date %></h2>
+              <p class="leading-relaxed text-base">Start Date</p>
+              <a class="mt-3 text-yellow-500 inline-flex items-center">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <!-- <path d="M5 12h14M12 5l7 7-7 7"></path> -->
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+            <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-5 flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                <circle cx="6" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><%= event.end_date %></h2>
+              <p class="leading-relaxed text-base">End Date</p>
+              <a class="mt-3 text-yellow-500 inline-flex items-center">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <!-- <path d="M5 12h14M12 5l7 7-7 7"></path> -->
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+            <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-5 flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><%= event.event_location %></h2>
+              <p class="leading-relaxed text-base">Venue</p>
+              <a class="mt-3 text-yellow-500 inline-flex items-center">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <!-- <path d="M5 12h14M12 5l7 7-7 7"></path> -->
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -16,15 +70,146 @@
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto">
         <div id="div_display" class="flex flex-wrap -m-4">
+          <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+            <div class="h-full text-center">
+              
+            <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="/img/albin.jpeg">
+            <p id="speaker_bio" class="leading-relaxed">
+            <span class="inline-block h-1 w-10 rounded bg-yellow-500 mt-6 mb-4"></span>
+            <h2 id="speaker_name" class="text-gray-900 font-medium title-font tracking-wider text-sm"></h2>
+            <p id="speaker_status" class="text-gray-500"></p>
+            </div>
             
+            </div>
           
-
         </div>
       </div>
+
+      <!-- Application form  -->
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Application Form For <%= event.event_name %></h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Fill in the below form to apply for <%= event.event_name %> event.</p>
+    </div>
+    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <div class="flex flex-wrap -m-2" id="application_form">
+        
+  </div>
+  <div class="p-2 w-full">
+    <button class="flex mx-auto text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" onclick="getValue();">Apply</button>
+  </div>
+
     </section>
     <!-- Footer -->
      <%- include('../template/footer') -%>
-     <script src="/js/event_form.js"></script>
-     <script src="/js/form_generation.js"></script>
+     <script>
+       let application_form = document.getElementById("application_form");
+       let ele;
+       function generate(){
+        let questionnaires = '<%= event.questionnaires %>';
+        let final = questionnaires.split(',');
+        console.log("Name");
+
+        for (let i = 0; i < final.length; i++) {
+        ele = final[i];
+
+        application_form.innerHTML += `
+          <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="${ele}" class="leading-7 text-sm text-gray-600">${ele}</label>
+            <input id="${ele}" name="${ele}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        `;
+        
+console.log("the loop:", ele);
+        }
+       }
+       generate();
+
+       function getValue(){
+        if(ele = Name){
+          let name = ele.value;
+          console.log("Participant's Name", name);
+        }else{
+          next();
+        }
+        if(ele = DOB){
+          let dob = ele.value;
+          console.log("Participant's DOB: ", dob);
+          getValue.next();
+         }
+        // else{
+          
+        // // }
+        if(ele = Address){
+          let address = ele.value
+          console.log("Participant's Address: ", address);
+        }else{
+          next();
+        }
+
+        if(ele = Email){
+          let email = ele.value
+          console.log("Participant's Email: ", email);
+        }else{
+          next();
+        }
+
+        if(ele = Phone_number){
+          let phone_number = ele.value
+          console.log("Participant's Phone Number: ", phone_number);
+        }else{
+          next();
+        }
+
+        if(ele = Sex){
+          let sex = ele.value
+          console.log("Participant's Sex: ", sex);
+        }else{
+          next();
+        }
+
+        if(ele = Education_Status){
+          let education_status = ele.value
+          console.log("Participant's Education Status: ", education_status);
+        }else{
+          next();
+        }
+
+        if(ele = Status){
+          let status = ele.value
+          console.log("Participant's Status: ", status);
+        }else{
+          next();
+        }
+
+        if(ele = About_you){
+          let  about_you = ele.value
+          console.log("Participant's About you: ", about_you);
+        }else{
+          next();
+        }
+
+        if(ele = Why_apply){
+          let why_apply = ele.value
+          console.log("Participant's Why apply: ", why_apply);
+        }else{
+          next();
+        }
+
+        if(ele = Why_you){
+          let why_accept = ele.value
+          console.log("Participant's Why you: ", why_accept);
+        }else{
+          next();
+        }
+       }
+     </script>
+     <!-- <script src="/js/event.js"></script> -->
+     <!-- <script src="/js/event_form.js"></script> -->
+     <!-- <script src="/js/form_generation.js"></script>
      <script src="/js/speaker.js"></script>
+   <script src="/js/index.js"></script>
+    -->
 </body>

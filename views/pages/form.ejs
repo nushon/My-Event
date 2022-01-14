@@ -15,199 +15,148 @@
           </a>
       </button>
       <button onclick="displayStep2();" id="btn_step2" class="steps">
-        <a class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium bg-white-100 inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider" id="tab2" class="tabs">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>STEP 2
-          </a>
-      </button>
-     
-     <button onclick="displayStep3();" id="btn_step3" class="steps">
         <a class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium  bg-white-100 inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider" id="tab3" class="tabs">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
-          </svg>STEP 3
+          </svg>STEP 2
           </a>
+       
+      </button>
+     
+     <button onclick="displayStep3();" id="btn_step3" class="steps">
+      <a class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium bg-white-100 inline-flex items-center leading-none border-gray-200 hover:text-gray-900 tracking-wider" id="tab2" class="tabs">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>STEP 3
+      </a>
      </button>
     </div>
     <!-- steps header ends -->
 
     <!-- Step 1 details -->
-    
-   
-      <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step1">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Event's Details</h1>
-        <div class="lg:w-1/2 md:w-2/3 mx-auto">
-
-          
-            <div class="flex flex-wrap -m-2">
-              <div class="p-2 w-1/2">
-                <div class="relative">
-                  <label for="name" class="leading-7 text-sm text-gray-600" >Event's Name</label>
-                  <input type="text" id="event_name" name="event_name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                </div>
-              </div>
-              <div class="p-2 w-1/2">
-                  <div class="relative">
-                    <label for="Venue" class="leading-7 text-sm text-gray-600">Venue</label>
-                    <input type="text" id="venue" name="venue" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step1">
+        
+      <div class="lg:w-1/2 md:w-2/3 mx-auto text-center w-full mb-12 text-lg">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Participant's Details</h1>
+          <fieldset>
+  
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="name" name="question" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" value="Name">
+                  </div>
+                  <div class="ml-3 text-sm">
+                      <label for="name" class="font-medium text-gray-700">Name</label>
+                      <p class="text-gray-500">Check the box if you want the applicant to input their Name.</p>
                   </div>
                 </div>
-              <div class="p-2 w-1/2">
-                <div class="relative">
-                  <label for="date" class="leading-7 text-sm text-gray-600">Event's Start Date</label>
-                  <input type="date" id="start_date" name="start_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                </div>
-              </div>
-              <div class="p-2 w-1/2">
-                  <div class="relative">
-                    <label for="date" class="leading-7 text-sm text-gray-600">Event's End Date</label>
-                    <input type="date" id="end_date" name="end_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="dob" name="question" type="checkbox" value="DOB" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="dob" class="font-medium text-gray-700">Date Of Birth</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to input their DOB .</p>
                   </div>
                 </div>
-            
-              <div class="p-2 w-full">
-                <div class="relative">
-                  <label for="message" class="leading-7 text-sm text-gray-600" >About The Event</label>
-                  <textarea id="about-event" name="about-event" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="address" name="question" type="checkbox" value="Address" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="address" class="font-medium text-gray-700">Address</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to input their Address.</p>
+                  </div>
                 </div>
-              </div>
-              <div class="p-2 w-full">
-                <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="next_step2();">Next</button>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="email" name="question" type="checkbox" value="Email" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="email" class="font-medium text-gray-700">Email</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to input their Email.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="phone_num" name="question" type="checkbox" value="Phone_number" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="phone_num" class="font-medium text-gray-700">Phone Number</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to input their Phone Number.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="sex" name="question" type="checkbox" value="Sex" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="sex" class="font-medium text-gray-700" >Sex</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to input their Sex.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="education" name="question" type="checkbox" value="Education_Status" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="education" class="font-medium text-gray-700">Educational Status</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to input their Educational Status.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="status" name="question" type="checkbox" value="Status" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="status" class="font-medium text-gray-700">Status</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to input their Status.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="about_you" name="question" type="checkbox" value="About_you" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="about_you" class="font-medium text-gray-700">Tell us about yourself</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to tell you about themself.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="why_apply" name="question" type="checkbox"  value="Why_apply" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="why_apply" class="font-medium text-gray-700">Why are you applying?</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to you why they are applying.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="why_you" name="question" type="checkbox" value="Why_you" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="why_you" class="font-medium text-gray-700">Why do you that you are the best candidate?</label>
+                    <p class="text-gray-500">Check the box if you want the applicant to you why they are the best candidate.</p>
+                  </div>
+                </div>
               </div>
               
-            </div>
-          
-          
-        </div>
+            </fieldset>
+           
       </div>
-   
+      <div class="p-2 w-full">
+        <button id="questions_id" class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="submit();">Next</button>
+      </div>
+    </div>
 
+   
+    
     <!-- Step2 details -->
     
    
     <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step2">
-        
-        <div class="lg:w-1/2 md:w-2/3 mx-auto text-center w-full mb-12 text-lg">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Participant's Details</h1>
-            <fieldset>
-    
-                <div class="mt-4 space-y-4">
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="name" name="question" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" value="Name">
-                    </div>
-                    <div class="ml-3 text-sm">
-                        <label for="name" class="font-medium text-gray-700">Name</label>
-                        <p class="text-gray-500">Check the box if you want the applicant to input their Name.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="dob" name="question" type="checkbox" value="DOB" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="dob" class="font-medium text-gray-700">Date Of Birth</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to input their DOB .</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="address" name="question" type="checkbox" value="Address" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="address" class="font-medium text-gray-700">Address</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to input their Address.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="email" name="question" type="checkbox" value="Email" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="email" class="font-medium text-gray-700">Email</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to input their Email.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="phone_num" name="question" type="checkbox" value="Phone_number" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="phone_num" class="font-medium text-gray-700">Phone Number</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to input their Phone Number.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="sex" name="question" type="checkbox" value="Sex" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="sex" class="font-medium text-gray-700" >Sex</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to input their Sex.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="education" name="question" type="checkbox" value="Education_Status" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="education" class="font-medium text-gray-700">Educational Status</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to input their Educational Status.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="status" name="question" type="checkbox" value="Status" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="status" class="font-medium text-gray-700">Status</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to input their Status.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="about_you" name="question" type="checkbox" value="About_you" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="about_you" class="font-medium text-gray-700">Tell us about yourself</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to tell you about themself.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="why_apply" name="question" type="checkbox"  value="Why_apply" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="why_apply" class="font-medium text-gray-700">Why are you applying?</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to you why they are applying.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="why_you" name="question" type="checkbox" value="Why_you" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="why_you" class="font-medium text-gray-700">Why do you that you are the best candidate?</label>
-                      <p class="text-gray-500">Check the box if you want the applicant to you why they are the best candidate.</p>
-                    </div>
-                  </div>
-                </div>
-                
-              </fieldset>
-             
-        </div>
-        <div class="p-2 w-full">
-          <button id="questions_id" class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="form_generation();">Next</button>
-        </div>
-      </div>
-
-
-    <!-- Step 3 details -->
-    
-   
-    <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step3">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Speaker's Details</h1>
       <div class="lg:w-1/2 md:w-2/3 mx-auto">
         <div class="flex flex-wrap -m-2">
@@ -233,20 +182,75 @@
             </div>
           </div>
           <div class="p-2 w-full">
-            <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="speaker_details(); event_details(event);"><a href="/attend">Submit</a></button>
+            <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="speaker_details();">Next</button>
           </div>
           
         </div>
         <!-- Second Speaker -->
+
+    <!-- Step 3 details -->
+    
+   
+  
         
       </div>
     </div>
+
+    <div class="container px-5 py-24 mx-auto flex flex-col text-center w-full mb-12" id="step3">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Event's Details</h1>
+      <div class="lg:w-1/2 md:w-2/3 mx-auto">
+
+        
+          <div class="flex flex-wrap -m-2">
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="name" class="leading-7 text-sm text-gray-600" >Event's Name</label>
+                <input type="text" id="event_name" name="event_name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="Venue" class="leading-7 text-sm text-gray-600">Venue</label>
+                  <input type="text" id="venue" name="venue" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="date" class="leading-7 text-sm text-gray-600">Event's Start Date</label>
+                <input type="date" id="start_date" name="start_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="date" class="leading-7 text-sm text-gray-600">Event's End Date</label>
+                  <input type="date" id="end_date" name="end_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+          
+            <div class="p-2 w-full">
+              <div class="relative">
+                <label for="message" class="leading-7 text-sm text-gray-600" >About The Event</label>
+                <textarea id="about-event" name="about-event" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <a href="/"><button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none rounded text-lg" onclick="event_details();">Submit</button></a>
+            </div>
+            <!-- <a href="/event/${mydata[i].id}"></a> -->
+          </div>
+        
+        
+      </div>
+    </div>
+ 
+
   </div>
 </section>
       <!-- Footer -->
       <%- include('../template/footer') -%>
 <script src="/js/event_form.js"></script>
-<script src="/js/form_generation.js"></script>
 <script src="/js/speaker.js"></script>
+<script src="/js/form_generation.js"></script>
+<script src="/js/index.js"></script>
 </body>
 </html>
