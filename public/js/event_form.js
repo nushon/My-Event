@@ -53,14 +53,42 @@ function submit(){
     console.log("The final questions: ", final_questions)
     displayStep2();
 }
-
-
 // Getting event details from the form 
 let event_name = document.getElementById("event_name");
 let event_location = document.getElementById("venue");
 let start_date = document.getElementById("start_date");
 let end_date = document.getElementById("end_date");
 let event_description = document.getElementById("about-event");
+
+// Form Validation 
+function validate_form(){
+    if (event_name.value === "") {
+        alert( "Please provide your Event's Name!" );
+        event_name.focus() ;
+        return false;
+    }
+    if (event_location.value === "") {
+        alert( "Please provide your Event's Location!" );
+        event_location.focus() ;
+        return false;
+    }
+    if (start_date.value === "") {
+        alert( "Please provide your Event's Start Date!" );
+        start_date.focus() ;
+        return false;
+    }
+    if (end_date.value === "") {
+        alert( "Please provide your Event's End Date!" );
+        end_date.focus() ;
+        return false;
+    }
+    if (event_description.value === "") {
+        alert( "Please provide your Event's Description!" );
+        event_description.focus() ;
+        return false;
+    }
+}
+
 
 function event_details(){
     let event_data = {

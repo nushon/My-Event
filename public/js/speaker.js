@@ -18,6 +18,24 @@ function displayStep3(){
 let speaker_name = document.getElementById("speaker_name");
 let speaker_status = document.getElementById("speaker_status");
 let biography = document.getElementById("biography")
+
+function validate_speakers(){
+    if (speaker_name.value === "") {
+        alert( "Please provide your Speaker's Name!" );
+        speaker_name.focus() ; 
+        return false;
+    }
+    if (speaker_status.value === "") {
+        alert( "Please provide your Speaker's Status!" );
+        speaker_status.focus() ; 
+        return false;
+    }
+    if (biography.value === "") {
+        alert( "Please provide your Speaker's Status!" );
+        speaker_status.focus() ; 
+        return false;
+    }
+}
 function speaker_details(){
     let speaker_data = {
         name: speaker_name.value,
