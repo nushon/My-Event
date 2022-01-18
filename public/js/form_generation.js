@@ -2,9 +2,9 @@ function displayStep1(){
     let step1 = document.getElementById("step1");
     let step2 = document.getElementById("step2");
     let step3 = document.getElementById("step3");
-    let tab1 = document.getElementById("tab1");
-    let tab2 = document.getElementById("tab2");
-    let tab3 = document.getElementById("tab3");
+    let btn_step1 = document.getElementById("btn_step1");
+    let btn_step2 = document.getElementById("btn_step2");
+    let btn_step3 = document.getElementById("btn_step3");
     step1.style.display = "block";
     step2.style.display = "none";
     step3.style.display = "none";

@@ -96,7 +96,7 @@
         
   </div>
   <div class="p-2 w-full">
-    <button class="flex mx-auto text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" onclick="getValue();">Apply</button>
+    <button class="flex mx-auto text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" onclick="getValue(); send_form_values();">Apply</button>
   </div>
 
     </section>
@@ -116,95 +116,128 @@
         application_form.innerHTML += `
           <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="${ele}" class="leading-7 text-sm text-gray-600">${ele}</label>
-            <input id="${ele}" name="${ele}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label type="text" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
+            <input id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
         `;
-        
-console.log("the loop:", ele);
         }
+
+        console.log("the loop:", ele);
        }
        generate();
-
+let name;
+let dob;
+let address;
+let email;
+let phone_number;
+let sex;
+let education_status;
+let status;
+let about_you;
+let why_apply;
+let why_you;
        function getValue(){
-        if(ele = Name){
-          let name = ele.value;
+         const inputElements = document.querySelectorAll("input");
+
+         for (let index = 0; index < inputElements.length; index++) {
+           const element = inputElements[index];
+
+          //  console.log(`${element.id}: ${element.value}`);
+          let obj = `${element.id}`;
+          if(obj === "name"){
+            name = `${element.value}`;
           console.log("Participant's Name", name);
-        }else{
-          next();
-        }
-        if(ele = DOB){
-          let dob = ele.value;
-          console.log("Participant's DOB: ", dob);
-          getValue.next();
+          }
+          else  if(obj === "dob"){
+            dob = `${element.value}`;
+            console.log("Participant's DOB", dob);
+          }
+          else if(obj === "address"){
+            address = `${element.value}`;
+            console.log("Participant's Address: ", address);
+          }
+
+          else if(obj === "email"){
+            email = `${element.value}`;
+            console.log("Participant's Email: ", email);
+          }
+
+          else if(obj === "phone_number"){
+            phone_number = `${element.value}`;
+            console.log("Participant's Phone Number: ", phone_number);
+          }
+
+          else if(obj === "sex"){
+            sex = `${element.value}`;
+            console.log("Participant's Sex: ", sex);
+          }
+
+          else if(obj === "education_status"){
+            education_status = `${element.value}`;
+            console.log("Participant's Education Status: ", education_status);
+          }
+          else if(obj === "status"){
+            status = `${element.value}`;
+            console.log("Participant's Status: ", status);
+          }
+          else if(obj === "about_you"){
+            about_you = `${element.value}`;
+            console.log("Participant's About you: ", about_you);
+          }
+          else  if(obj === "why_apply"){
+            why_apply = `${element.value}`;
+            console.log("Participant's Why apply: ", why_apply);
+          }
+          else if(element.value === "why_you"){
+            why_accept = `${element.value}`;
+            console.log("Participant's Why you: ", why_accept);
+          }
+           
          }
-        // else{
-          
-        // // }
-        if(ele = Address){
-          let address = ele.value
-          console.log("Participant's Address: ", address);
-        }else{
-          next();
-        }
-
-        if(ele = Email){
-          let email = ele.value
-          console.log("Participant's Email: ", email);
-        }else{
-          next();
-        }
-
-        if(ele = Phone_number){
-          let phone_number = ele.value
-          console.log("Participant's Phone Number: ", phone_number);
-        }else{
-          next();
-        }
-
-        if(ele = Sex){
-          let sex = ele.value
-          console.log("Participant's Sex: ", sex);
-        }else{
-          next();
-        }
-
-        if(ele = Education_Status){
-          let education_status = ele.value
-          console.log("Participant's Education Status: ", education_status);
-        }else{
-          next();
-        }
-
-        if(ele = Status){
-          let status = ele.value
-          console.log("Participant's Status: ", status);
-        }else{
-          next();
-        }
-
-        if(ele = About_you){
-          let  about_you = ele.value
-          console.log("Participant's About you: ", about_you);
-        }else{
-          next();
-        }
-
-        if(ele = Why_apply){
-          let why_apply = ele.value
-          console.log("Participant's Why apply: ", why_apply);
-        }else{
-          next();
-        }
-
-        if(ele = Why_you){
-          let why_accept = ele.value
-          console.log("Participant's Why you: ", why_accept);
-        }else{
-          next();
-        }
+         
+        //  console.log({inputElements})
        }
+
+       function send_form_values(){
+        
+         let questions_values = {
+           name: name,
+           dob: dob,
+           address: address,
+           email: email,
+           phone_number: phone_number,
+           sex: sex,
+           education_status: education_status,
+           status: status,
+           about_you: about_you,
+           why_apply: why_apply,
+           why_accept: why_you
+
+         }
+
+         console.log("Questions Values: ", questions_values);
+        let url = "/events_questions";
+        fetch(url,{
+            method: "POST",
+            body: JSON.stringify(questions_values),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        }).then(function(response) {
+            return response.json();
+        // }).then(function(response){
+        //     console.log("Sent", response);
+        }) .catch(function (err){
+            console.log(err);
+        })
+}
+
+function submit(){
+  getValue();
+  
+  send_form_values();
+}
      </script>
      <!-- <script src="/js/event.js"></script> -->
      <!-- <script src="/js/event_form.js"></script> -->

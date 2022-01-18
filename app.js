@@ -114,8 +114,8 @@ app.post('/event_detail', (req, res)=> {
     console.log("This is event data: ", event_data);
     let data;
 
-    axios.post('https://kpalan-event.herokuapp.com/event_form', event_data)
-    // axios.post('http://localhost:3100/event_form', event_data)
+    // axios.post('https://kpalan-event.herokuapp.com/event_form', event_data)
+    axios.post('http://localhost:3100/event_form', event_data)
     .then(response => {
         data = response.data;
         console.log(response.status);
@@ -162,12 +162,12 @@ app.post('/speaker_detail', (req, res)=> {
     let speaker_data = req.body;
     let data;
 
-    axios.post('https://kpalan-event.herokuapp.com/speakers', speaker_data)
-    // axios.post('http://localhost:3100/speakers', speaker_data)
+    // axios.post('https://kpalan-event.herokuapp.com/speakers', speaker_data)
+    axios.post('http://localhost:3100/speakers', speaker_data)
     .then(res => {
         data = res.data;
         console.log(res.status);
-        console.log(data);
+        // console.log(data);
     
         // if(res.status === 200 && data["code"] === 0){
         //     res.end(JSON.stringify(data));
@@ -185,8 +185,8 @@ app.post('/speaker_detail', (req, res)=> {
 // // speaker API
 app.get('/display_speakers', async(req, res)=>{
     
-        const result = await axios("https://kpalan-event.herokuapp.com/speakers");
-        // const result = await axios("http://localhost:3100/speakers");
+        // const result = await axios("https://kpalan-event.herokuapp.com/speakers");
+        const result = await axios("http://localhost:3100/speakers");
         const data = result.data;
         // console.log("Speakers :", (JSON.stringify({data})));
         return res.json({data});
@@ -196,27 +196,27 @@ app.get('/display_speakers', async(req, res)=>{
 
 app.get('/display_event_details', async(req, res)=>{
     
-    const result = await axios("https://kpalan-event.herokuapp.com/event_form");
-    // const result = await axios("http://localhost:3100/event_form");
+    // const result = await axios("https://kpalan-event.herokuapp.com/event_form");
+    const result = await axios("http://localhost:3100/event_form");
     const data = result.data;
-    console.log(" Details :", (JSON.stringify({data})));
+    // console.log(" Details :", (JSON.stringify({data})));
     return res.json({data});
 });
 //Getting questionnaries
 app.get('/event_questionnaires', async(req, res)=>{
     
-    const result = await axios("https://kpalan-event.herokuapp.com/event_form");
-    // const result = await axios("http://localhost:3100/event_form");
+    // const result = await axios("https://kpalan-event.herokuapp.com/event_form");
+    const result = await axios("http://localhost:3100/event_form");
     const data = result.data;
-    console.log("Event Questionnaires :", (JSON.stringify({data})));
+    // console.log("Event Questionnaires :", (JSON.stringify({data})));
     return res.json({data});
 });
 
 app.get('/event/:id', async(req, res)=> {
     let event_id_query = req.params.id;
     console.log("Event query", event_id_query)
-     const result = await axios("https://kpalan-event.herokuapp.com/event/${event_id_query}`");
-    // const result = await axios(`http://localhost:3100/event/${event_id_query}`);
+    //  const result = await axios("https://kpalan-event.herokuapp.com/event/${event_id_query}`");
+    const result = await axios(`http://localhost:3100/event/${event_id_query}`);
     const data = await result.data;
     // console.log("Query Details :", result);
     // console.log('THE REQ', req.query);

@@ -7,7 +7,7 @@
   <div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
       <!-- steps headers -->
     <div class="flex mx-auto flex-wrap mb-20" >
-      <button onclick="displayStep1();" id="btn_step1" class="steps">
+      <button onclick="displayStep1();" id="btn_step1" class="steps" style="background-color: rgb(241, 143, 1);">
         <a class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium bg-white-100 inline-flex items-center leading-none border-tangerine-500 text-tangerine-500 tracking-wider rounded-t" id="tab1" class="tabs">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -163,14 +163,14 @@
           <div class="p-2 w-1/2">
             <div class="relative">
               <label for="speaker_name" class="leading-7 text-sm text-gray-600">Name</label>
-              <input type="text" id="speaker_name" name="speaker_name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <input required type="text" id="speaker_name" name="speaker_name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
           </div>
           
           <div class="p-2 w-1/2">
             <div class="relative">
               <label for="speaker_status" class="leading-7 text-sm text-gray-600">Status</label>
-              <input type="text" id="speaker_status" name="speaker_status" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <input required type="text" id="speaker_status" name="speaker_status" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
           </div>
     
@@ -178,7 +178,7 @@
           <div class="p-2 w-full">
             <div class="relative">
               <label for="biography" class="leading-7 text-sm text-gray-600">Biography</label>
-              <textarea id="biography" name="biography" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              <textarea required id="biography" name="biography" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
             </div>
           </div>
           <div class="p-2 w-full">
@@ -205,32 +205,32 @@
             <div class="p-2 w-1/2">
               <div class="relative">
                 <label for="name" class="leading-7 text-sm text-gray-600" >Event's Name</label>
-                <input type="text" id="event_name" name="event_name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input required type="text" id="event_name" name="event_name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
               </div>
             </div>
             <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="Venue" class="leading-7 text-sm text-gray-600">Venue</label>
-                  <input type="text" id="venue" name="venue" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input required type="text" id="venue" name="venue" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
             <div class="p-2 w-1/2">
               <div class="relative">
                 <label for="date" class="leading-7 text-sm text-gray-600">Event's Start Date</label>
-                <input type="date" id="start_date" name="start_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input required type="date" id="start_date" name="start_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
               </div>
             </div>
             <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="date" class="leading-7 text-sm text-gray-600">Event's End Date</label>
-                  <input type="date" id="end_date" name="end_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input required type="date" id="end_date" name="end_date" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
           
             <div class="p-2 w-full">
               <div class="relative">
                 <label for="message" class="leading-7 text-sm text-gray-600" >About The Event</label>
-                <textarea id="about-event" name="about-event" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                <textarea required id="about-event" name="about-event" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
               </div>
             </div>
             <div class="p-2 w-full">
