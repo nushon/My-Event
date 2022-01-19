@@ -5,7 +5,7 @@
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto">
         <div id="event_head" class="text-center mb-20">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4" id="the_event_name"> <%= event.event_name %> </h1>
+          <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4" id="the_event_name"><%= event.event_name %></h1>
           <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s" id="the_event_des">The event's description: <%= event.event_description %></p>
           <div class="flex mt-6 justify-center">
             <div class="w-16 h-1 rounded-full bg-yellow-500 inline-flex"></div>
@@ -102,7 +102,7 @@
     </section>
     <!-- Footer -->
      <%- include('../template/footer') -%>
-     <script>
+     <!-- <script>
        let application_form = document.getElementById("application_form");
        let ele;
        function generate(){
@@ -202,18 +202,19 @@ let why_you;
        function send_form_values(){
         
          let questions_values = {
-	name: "James Gaye",
-	dob: "March 30, 2000",
-	address: "Matadi",
-	email: "james@gmail.com",
-	phone_number: "07758345237",
-	sex: "Male",
-	education_status: "",
-	status: "",
-	about_you: "I am a software engineer",
-	why_apply: "",
-	why_accept: "I want to attend"
-}
+           name: name,
+           dob: dob,
+           address: address,
+           email: email,
+           phone_number: phone_number,
+           sex: sex,
+           education_status: education_status,
+           status: status,
+           about_you: about_you,
+           why_apply: why_apply,
+           why_accept: why_you
+
+         }
 
          console.log("Questions Values: ", questions_values);
         let url = "/events_questions";
@@ -237,11 +238,12 @@ function submit(){
   
   send_form_values();
 }
-     </script>
-     <!-- <script src="/js/event.js"></script> -->
-     <!-- <script src="/js/event_form.js"></script> -->
-     <!-- <script src="/js/form_generation.js"></script>
+     </script> -->
+     <script src="/app.js"></script>
+     <!-- <script src="/js/event.js"></script>
+     <script src="/js/event_form.js"></script> 
+     <script src="/js/form_generation.js"></script>
      <script src="/js/speaker.js"></script>
    <script src="/js/index.js"></script>
-    -->
+     -->
 </body>

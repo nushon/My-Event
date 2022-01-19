@@ -218,12 +218,13 @@ app.get('/event_questionnaires', async(req, res)=>{
 app.get('/event/:id', async(req, res)=> {
     let event_id_query = req.params.id;
     console.log("Event query", event_id_query)
-     const result = await axios("https://kpalan-event.herokuapp.com/event/${event_id_query}`");
+     const result = await axios(`https://kpalan-event.herokuapp.com/event/${event_id_query}`);
     // const result = await axios(`http://localhost:3100/event/${event_id_query}`);
     const data = await result.data;
     // console.log("Query Details :", result);
-    // console.log('THE REQ', req.query);
+    console.log('THE req',{event: data.event});
     res.render('pages/event', {event: data.event});
+
     // res.json({data});
 
 });
