@@ -55,8 +55,11 @@ app.get('/contact', (req, res)=> {
     res.render('pages/contact');
 });
 
-app.get('/event', (req, res)=> {
-    res.render('pages/event');
+// app.get('/event', (req, res)=> {
+//     res.render('pages/event');
+// });
+app.get('/dashboard', (req, res)=> {
+    res.render('pages/dashboard');
 });
 app.get('/display_form', (req, res)=> {
     res.render('pages/display_form');
