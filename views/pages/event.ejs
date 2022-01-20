@@ -96,13 +96,13 @@
         
   </div>
   <div class="p-2 w-full">
-    <button class="flex mx-auto text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" onclick="getValue(); send_form_values();">Apply</button>
+    <button class="flex mx-auto text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" onclick="send_form_values();">Apply</button>
   </div>
 
     </section>
     <!-- Footer -->
      <%- include('../template/footer') -%>
-     <!-- <script>
+     <script>
        let application_form = document.getElementById("application_form");
        let ele;
        function generate(){
@@ -113,7 +113,68 @@
         for (let i = 0; i < final.length; i++) {
         ele = final[i];
 
-        application_form.innerHTML += `
+        if (ele === "dob") {
+          application_form.innerHTML += `
+          <div class="p-2 w-1/2">
+          <div class="relative">
+            <label type="date" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
+            <input required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        `;
+        }
+        else if(ele === "email"){
+          application_form.innerHTML += `
+          <div class="p-2 w-1/2">
+          <div class="relative">
+            <label type="email" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
+            <input required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        `;
+        } 
+        else if(ele === "phone_number"){
+          application_form.innerHTML += `
+          <div class="p-2 w-1/2">
+          <div class="relative">
+            <label type="number" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
+            <input required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        `;
+        }
+
+        else if(ele === "about_you"){
+          application_form.innerHTML += `
+          <div class="p-2 w-1/2">
+          <div class="relative">
+            <label type="text" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
+            <textarea required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        `;
+        }
+        else if(ele === "why_apply"){
+          application_form.innerHTML += `
+          <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
+            <textarea required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        `;
+        }
+        else if(ele === "why_you"){
+          application_form.innerHTML += `
+          <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
+            <textarea required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        `;
+        }else{
+          application_form.innerHTML += `
           <div class="p-2 w-1/2">
           <div class="relative">
             <label type="text" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
@@ -122,21 +183,25 @@
         </div>
         `;
         }
+        
+        }
 
         console.log("the loop:", ele);
        }
        generate();
-let name;
-let dob;
-let address;
-let email;
-let phone_number;
-let sex;
-let education_status;
-let status;
-let about_you;
-let why_apply;
-let why_you;
+      let name;
+      let dob;
+      let address;
+      let email;
+      let phone_number;
+      let sex;
+      let education_status;
+      let status;
+      let about_you;
+      let why_apply;
+      let why_you;
+      let event_id;
+
        function getValue(){
          const inputElements = document.querySelectorAll("input");
 
@@ -198,26 +263,31 @@ let why_you;
          
         //  console.log({inputElements})
        }
+         
 
        function send_form_values(){
+// Calling the get value function 
+        getValue();
+//  Assigning the current to the form and post it to the event_form_id colum
+        event_id = '<%= event.id %>';
         
          let questions_values = {
-           name: name,
-           dob: dob,
-           address: address,
-           email: email,
-           phone_number: phone_number,
-           sex: sex,
-           education_status: education_status,
-           status: status,
-           about_you: about_you,
-           why_apply: why_apply,
-           why_accept: why_you
-
-         }
+          name: name,
+          dob: dob,
+          address: address,
+          email: email,
+          phone_number: phone_number,
+          sex: sex,
+          education_status: education_status,
+          status: status,
+          about_you: about_you,
+          why_apply: why_apply,
+          why_accept: why_you,
+          event_form_id: event_id
+}
 
          console.log("Questions Values: ", questions_values);
-        let url = "/events_questions";
+        let url = "/question_values";
         fetch(url,{
             method: "POST",
             body: JSON.stringify(questions_values),
@@ -226,24 +296,19 @@ let why_you;
             }
         }).then(function(response) {
             return response.json();
-        // }).then(function(response){
-        //     console.log("Sent", response);
         }) .catch(function (err){
             console.log(err);
+           
         })
 }
 
-function submit(){
-  getValue();
-  
-  send_form_values();
-}
-     </script> -->
-     <script src="/app.js"></script>
+// submit();
+     </script> 
+     <!-- <script src="/app.js"></script> -->
      <!-- <script src="/js/event.js"></script>
      <script src="/js/event_form.js"></script> 
      <script src="/js/form_generation.js"></script>
      <script src="/js/speaker.js"></script>
-   <script src="/js/index.js"></script>
-     -->
+   <script src="/js/index.js"></script> -->
+    
 </body>

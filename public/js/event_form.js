@@ -1,4 +1,19 @@
-function displayStep2(){
+function displayStep1(){
+    let step1 = document.getElementById("step1");
+    let step2 = document.getElementById("step2");
+    let step3 = document.getElementById("step3");
+    let btn_step1 = document.getElementById("btn_step1");
+    let btn_step2 = document.getElementById("btn_step2");
+    let btn_step3 = document.getElementById("btn_step3");
+    step1.style.display = "block";
+    step2.style.display = "none";
+    step3.style.display = "none";
+    btn_step1.style.backgroundColor = "rgb(241, 143, 1)";
+    btn_step2.style.backgroundColor = "white";
+    btn_step3.style.backgroundColor = "white";
+  }
+
+  function displayStep2(){
     let step1 = document.getElementById("step1");
     let step2 = document.getElementById("step2");
     let step3 = document.getElementById("step3");
@@ -12,7 +27,6 @@ function displayStep2(){
     btn_step2.style.backgroundColor = "rgb(241, 143, 1)";
     btn_step3.style.backgroundColor = "white";
   }
-
   function displayStep3(){
     let step1 = document.getElementById("step1");
     let step2 = document.getElementById("step2");
@@ -50,7 +64,8 @@ function get_selected_questions(name) {
 }
 function submit(){
     console.log(get_selected_questions('question'));
-    console.log("The final questions: ", final_questions)
+    console.log("The final questions: ", final_questions);
+
     displayStep2();
 }
 // Getting event details from the form 
