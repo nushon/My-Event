@@ -71,3 +71,6 @@ button{
 #contact-form{
     background-color: rgb(226, 226, 226);
 }
+#alert{
+    display: none;
+}

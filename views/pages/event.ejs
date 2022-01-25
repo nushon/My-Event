@@ -3,6 +3,18 @@
   <!-- header  -->
     <%- include('../template/header') -%> 
     <section class="text-gray-600 body-font">
+      <!-- Success alert -->
+     
+      <div id="alert" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
+        <svg class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800 text-center">
+          Thanks, you have Successfully Apply for <strong><u><%= event.event_name %></u></strong> Event.
+        </div>
+        <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300" data-collapse-toggle="alert-3" aria-label="Close">
+          <span class="sr-only">Close</span>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
       <div class="container px-5 py-24 mx-auto">
         <div id="event_head" class="text-center mb-20">
           <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4" id="the_event_name"><%= event.event_name %></h1>
@@ -84,9 +96,10 @@
           
         </div>
       </div>
-
+      
+      
       <!-- Application form  -->
-  <div class="container px-5 py-24 mx-auto">
+  <div id="applcation_cont" class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Application Form For <%= event.event_name %></h1>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Fill in the below form to apply for <%= event.event_name %> event.</p>
@@ -96,111 +109,74 @@
         
   </div>
   <div class="p-2 w-full">
-    <button class="flex mx-auto text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" onclick="send_form_values();">Apply</button>
+    <button id="apply_btn" class="flex mx-auto text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" onclick="send_form_values();">Apply</button>
   </div>
+  </div>
+  </div>
+  
 
     </section>
     <!-- Footer -->
      <%- include('../template/footer') -%>
      <script>
-       let application_form = document.getElementById("application_form");
+       let alert = document.getElementById("alert");
+       let applcation_cont = document.getElementById("applcation_cont");
        let ele;
+
+       function success_alert(){
+        applcation_cont.style.display = "none";
+         alert.style.display = "block";
+       }
        function generate(){
-        let questionnaires = '<%= event.questionnaires %>';
-        let final = questionnaires.split(',');
-        console.log("Name");
+        let questionnaires_values = '<%= event.qValues %>';
+        // console.log(questionnaires);
+        let questionnaires_keys = '<%= event.qKeys%>';
+
+        let final = questionnaires_values.split(',');
+        let final_keys = questionnaires_keys.split(',');
+
+        
 
         for (let i = 0; i < final.length; i++) {
+          console.log("Final: ",  final[i]);
         ele = final[i];
 
-        if (ele === "dob") {
-          application_form.innerHTML += `
-          <div class="p-2 w-1/2">
-          <div class="relative">
-            <label type="date" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
-            <input required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        `;
-        }
-        else if(ele === "email"){
-          application_form.innerHTML += `
-          <div class="p-2 w-1/2">
-          <div class="relative">
-            <label type="email" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
-            <input required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        `;
-        } 
-        else if(ele === "phone_number"){
-          application_form.innerHTML += `
-          <div class="p-2 w-1/2">
-          <div class="relative">
-            <label type="number" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
-            <input required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        `;
+        let type = "text";
+
+        if (final_keys[i] === "DOB") {
+          type = "date";
+        }else if (final_keys[i] === "Email") {
+          type = "email";
+        }else if (final_keys[i] === "Phone_number") {
+          type = "number";
         }
 
-        else if(ele === "about_you"){
-          application_form.innerHTML += `
+        application_form.innerHTML += `
           <div class="p-2 w-1/2">
           <div class="relative">
-            <label type="text" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
-            <textarea required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="${final_keys[i].toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
+            <input type="${type}" required id="${final_keys[i].toLowerCase()}" name="${final_keys[i].toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
         `;
-        }
-        else if(ele === "why_apply"){
-          application_form.innerHTML += `
-          <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
-            <textarea required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        `;
-        }
-        else if(ele === "why_you"){
-          application_form.innerHTML += `
-          <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
-            <textarea required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        `;
-        }else{
-          application_form.innerHTML += `
-          <div class="p-2 w-1/2">
-          <div class="relative">
-            <label type="text" for="${ele.toLowerCase()}-{i}" class="leading-7 text-sm text-gray-600">${ele}</label>
-            <input required id="${ele.toLowerCase()}" name="${ele.toLowerCase()}-${i}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        `;
-        }
         
         }
 
         console.log("the loop:", ele);
        }
        generate();
-      let name;
-      let dob;
-      let address;
-      let email;
-      let phone_number;
-      let sex;
-      let education_status;
-      let status;
-      let about_you;
-      let why_apply;
-      let why_you;
-      let event_id;
+      let name,
+          dob,
+          address,
+          email,
+          phone_number,
+          sex,
+          education_status,
+          status,
+          about_you,
+          why_apply,
+          why_you,
+          event_id
 
        function getValue(){
          const inputElements = document.querySelectorAll("input");
@@ -299,7 +275,8 @@
         }) .catch(function (err){
             console.log(err);
            
-        })
+        });
+        success_alert();
 }
 
 // submit();

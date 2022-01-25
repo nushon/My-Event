@@ -43,31 +43,70 @@ function displayStep1(){
   }
 // Participant function 
 let display_html = document.getElementById("display_html");
-
-let final_questions = [];
+let final_question = [];
+let questions_value = [];
 function get_selected_questions(name) {
-    let questions_value = [];
+    
     const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
     
     checkboxes.forEach((checkbox) => {
-        questions_value.push(checkbox.value);
+        if (checkbox.value === "Why_apply") {
+            questions_value.push({"Why_apply": "Why apply"});
+        }else if(checkbox.value === "Name"){
+            questions_value.push({"Name": "Name"});
+
+        }else if(checkbox.value === "DOB"){
+            questions_value.push({"DOB": "Date of Birth"});
+
+        }else if(checkbox.value === "Address"){
+            questions_value.push({"Address": "Address"});
+
+        }else if(checkbox.value === "Email"){
+            questions_value.push({"Email": "Email"});
+
+        }else if(checkbox.value === "Phone_number"){
+            questions_value.push({"Phone_number": "Phone Number"});
+
+        }else if(checkbox.value === "Why_you"){
+            questions_value.push({"Why_you": "Why sholud we select you?"});
+
+        } else if(checkbox.value === "Status"){
+            questions_value.push({"Status": "Status"});
+
+        }else if(checkbox.value === "About_you"){
+            questions_value.push({"About_you": "Tell us about yourself."});
+
+        }else if(checkbox.value === "Education_Status"){
+            questions_value.push({"Education_Status": "Tell us about your Educational Status."});
+
+        }else if(checkbox.value === "Sex"){
+            questions_value.push({"Sex": "Sex"});
+
+        }
+
         
+        
+    
     });
     console.log("Questions Values",questions_value);
-    questions_value.forEach(ele => {
-        final_questions = questions_value;
-    })
+    // questions_value.forEach(ele => {
+    //     // final_questions = questions_value;
+    //     // final_questions.push(questions_value);
+    // })
 
     
     return questions_value;
 
 }
 function submit(){
-    console.log(get_selected_questions('question'));
-    console.log("The final questions: ", final_questions);
-
+    get_selected_questions('question');
+    // console.log(get_selected_questions('question'));
+    console.log("The final questions: ", questions_value);  
     displayStep2();
+    // final_question.push(questions_value);
+    // return final_question;
 }
+// console.log("Ben say", final_question);
 // Getting event details from the form 
 let event_name = document.getElementById("event_name");
 let event_location = document.getElementById("venue");
@@ -104,6 +143,7 @@ function validate_form(){
     }
 }
 
+// console.log("Questionnainers", questions_value);
 
 function event_details(){
     let event_data = {
@@ -112,7 +152,7 @@ function event_details(){
         start_date: start_date.value,
         end_date: end_date.value,
         event_description: event_description.value,
-        questionnaires: final_questions
+        questionnaires: JSON.stringify(questions_value)
         // speakers_id: speakers_id
     }
 
